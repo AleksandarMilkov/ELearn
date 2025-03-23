@@ -27,8 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 # Login and logout redirect
-LOGIN_REDIRECT_URL = '/base/'
-LOGOUT_REDIRECT_URL = '/base/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
