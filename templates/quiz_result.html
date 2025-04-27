@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- templates/quiz_result.html -->
 
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+  <h2>Quiz Result for {{ lesson.title }}</h2>
+  <p>You scored {{ score }} out of {{ total }}</p>
+  <a href="{% url 'lesson_list' %}">Back to Lessons</a>
+{% endblock %}

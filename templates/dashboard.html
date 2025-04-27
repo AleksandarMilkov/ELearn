@@ -5,6 +5,31 @@
     <title>Title</title>
 </head>
 <body>
+<h2>Welcome, {{ user.username }}!</h2>
+
+<h3>Your Enrolled Courses:</h3>
+{% if enrolled_courses %}
+    <ul>
+    {% for course in enrolled_courses %}
+        <li>{{ course.title }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You’re not enrolled in any courses yet.</p>
+{% endif %}
+
+<hr>
+
+<h3>Your Quiz Results:</h3>
+{% if results %}
+    <ul>
+    {% for result in results %}
+        <li>{{ result.lesson.title }} – Score: {{ result.score }}/{{ result.total }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You haven't completed any quizzes yet.</p>
+{% endif %}
 
 </body>
 </html>

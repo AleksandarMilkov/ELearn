@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lessons for {{ course.title }}</title>
 </head>
 <body>
+    <h2>Lessons in {{ course.title }}</h2>
 
+    <ul>
+        {% for lesson in lessons %}
+            <li>{{ lesson.title }} - <a href="{% url 'lesson_detail' lesson.id %}">View</a></li>
+        {% empty %}
+            <p>No lessons available.</p>
+        {% endfor %}
+    </ul>
+    
+
+    {% if request.user == course.teacher %}
+        <a href="{% url 'create_lesson' course.id %}">Add New Lesson</a>
+    {% endif %}
+
+    <a href="{% url 'course_detail' course.id %}">Back to Course</a>
 </body>
 </html>

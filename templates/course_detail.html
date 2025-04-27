@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ course.title }}</title>
 </head>
 <body>
+    <h2>{{ course.title }}</h2>
+    <p>{{ course.description }}</p>
+    <p>Teacher: {{ course.teacher.username }}</p>
 
+    {% if is_enrolled %}
+        <p>You are enrolled in this course.</p>
+    {% else %}
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Enroll in Course</button>
+        </form>
+    {% endif %}
+
+    <a href="{% url 'course_list' %}">Back to Courses</a>
 </body>
 </html>
